@@ -3,6 +3,7 @@ from typing import Dict, Any
 
 import requests
 from dotenv import load_dotenv
+from security import safe_requests
 
 load_dotenv()
 
@@ -22,7 +23,7 @@ def tool_get_weather(location: str = 'Sofia, Bulgaria') -> Dict[str, Any]:
     }
 
     try:
-        response = requests.get(url, params=params)
+        response = safe_requests.get(url, params=params)
 
         if response.status_code != 200:
             error_data = response.json()
