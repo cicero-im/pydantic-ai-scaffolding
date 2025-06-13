@@ -250,7 +250,7 @@ class LLMInfoProvider:
 
         # Fetch data from OpenRouter API if no valid cache
         try:
-            response = requests.get("https://openrouter.ai/api/v1/models")
+            response = requests.get("https://openrouter.ai/api/v1/models", timeout=60)
             response.raise_for_status()
             model_data = response.json().get("data", [])
 

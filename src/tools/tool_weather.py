@@ -22,7 +22,7 @@ def tool_get_weather(location: str = 'Sofia, Bulgaria') -> Dict[str, Any]:
     }
 
     try:
-        response = requests.get(url, params=params)
+        response = requests.get(url, params=params, timeout=60)
 
         if response.status_code != 200:
             error_data = response.json()
